@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 const api = axios.create({
-  baseURL: `/api`,
+  baseURL: '/api',
   headers: {
     'Content-Type': 'multipart/form-data',
   },
@@ -70,5 +70,6 @@ export const assetApi = {
 
 export const getImageUrl = (path: string | null) => {
   if (!path) return null;
-  return `${API_BASE}${path}`;
+  // 由于 axios 实例已配置 baseURL: '/api',直接使用路径即可
+  return path;
 };
